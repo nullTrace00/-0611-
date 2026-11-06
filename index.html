@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Something For You</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- WELCOME SCREEN -->
+        <section class="welcome-screen" id="welcomeScreen">
+
+            <p class="eyebrow">
+                A LITTLE SOMETHING, JUST FOR YOU
+            </p>
+
+            <h1>
+                This one's a little bit different.
+            </h1>
+
+            <p class="intro">
+                No big speeches. No rush.
+                Just a few things I've put together
+                for you. Explore at your own pace.
+            </p>
+
+            <button id="startButton">
+                Begin the experience
+            </button>
+
+        </section>
+
+
+        <!-- CODE SCREEN -->
+        <section class="code-screen" id="codeScreen" hidden>
+
+            <p class="eyebrow">
+                ONE LITTLE THING FIRST
+            </p>
+
+            <h2>
+                Let's see if you remember.
+            </h2>
+
+            <p class="intro">
+                A special code is set to continue...
+            </p>
+
+            <input
+                type="password"
+                id="secretCode"
+                placeholder="Enter your code"
+            >
+
+            <button id="unlockButton">
+                Unlock
+            </button>
+
+            <p id="codeMessage"></p>
+
+        </section>
+
+
+        <!-- ADVENTURE HUB -->
+        <section class="adventure-screen"
+            id="adventureScreen" hidden>
+
+            <p class="eyebrow">
+                YOUR LITTLE WORLD
+            </p>
+
+            <h2>
+                Where shall we begin?
+            </h2>
+
+            <p class="intro">
+                There are a few things waiting for you.
+                Some may require a little thinking.
+            </p>
+
+            <button id="chessButton">
+                ♟ The Chess Challenge
+            </button>
+          
+          <button id="letterButton" disabled>
+    🔒 The Hidden Letter
+          </button>
+
+          <button id="messageButton" disabled>
+    🔒 A Little Message For You 💗
+          </button>
+
+
+            <p class="coming-soon">
+                More little discoveries await...
+            </p>
+
+        </section>
+      
+<!-- CHESS CHALLENGE -->
+<section class="chess-screen" id="chessScreen" hidden>
+
+    <p class="eyebrow">✦ THE FIRST CHALLENGE ✦</p>
+
+    <h2>A little game of strategy.</h2>
+
+    <p class="intro">
+        Just Two moves. One checkmate.
+        Let's see what you got.
+    </p>
+
+    <div class="chess-info">
+        <p id="chessStatus">White to move.</p>
+    </div>
+
+    <div id="chessBoard" class="chess-board">
+        <!-- JavaScript will create the 64 squares here -->
+    </div>
+
+    <p id="chessMessage">
+        Find the winning moves.
+    </p>
+
+    <button id="backButton">
+        Back to discoveries
+    </button>
+
+</section>
+
+      <!-- HIDDEN LETTER -->
+
+<section class="letter-screen" id="letterScreen" hidden>
+
+    <p class="eyebrow">✦ A LITTLE SOMETHING FOR YOU ✦</p>
+
+    <h2>Not just yet, sweetheart.</h2>
+
+    <p class="intro">
+        Some things are worth waiting for.
+        Your letter is waiting patiently.
+    </p>
+
+    <div class="letter-timer">
+
+        <div id="timerDisplay">02:00</div>
+
+        <p id="timerMessage">
+            Patience, beautiful things take time.
+        </p>
+
+        <div class="timer-track">
+            <div id="timerProgress"></div>
+        </div>
+
+    </div>
+<div class="sealed-letter" id="sealedLetter">
+  
+    <div class="envelope" id="envelope">
+      
+    <div class="envelope-back"></div>
+    <div class="envelope-letter"></div>
+    <div class="envelope-front"></div>
+    <div class="envelope-flap"></div>
+    <div class="wax-seal">♡</div>
+</div>
+
+<h3 id="envelopeTitle">Your letter is sealed.</h3>
+<p id="envelopeText">Some words are worth waiting for. ♡</p>
+
+<button id="openLetterButton" hidden>
+    Open your letter ♡
+</button>
+</div>
+  
+  
+    <div id="letterReveal" hidden>
+
+        <div class="open-letter">
+
+            <p class="eyebrow">✦ FINALLY, JUST FOR YOU ✦</p>
+
+            <h2>My favourite person, 🥹💗</h2>
+
+            <p id="personalLetter">
+
+I don't think words will ever quite capture what you mean to me, but I'll try anyway. 
+
+There's something about you that makes my world feel a little warmer. The way you exist, your little habits, your smile, your presence… gosh, I appreciate more of it than I probably say. 🥰🌷
+
+On your special day, I hope you feel as beautiful, precious and appreciated as you truly are. May this new chapter bring you endless reasons to smile, unexpected happiness, beautiful memories and everything your heart has quietly wished for. 🎀✨
+
+Keep being that wonderful girl you are. Never stop smiling, never stop shining, and never forget how incredibly special you are to me. 💕
+
+And if there's one thing I want you to carry with you, it's this: out of all the people I could have crossed paths with, I'm really glad it was you. 🥹❤️
+
+Happy birthday, sweetheart! 🎂🦋
+
+Here's to more laughter, more memories, more adventures and countless little moments together. 🥂💗
+
+You're my favourite kind of beautiful. Always
+            My stubborn little kababy🤗🩶</p>
+
+        </div>
+
+    </div>
+
+    <button id="letterBackButton">
+        Back to discoveries
+    </button>
+
+</section>
+
+    <!-- PERSONAL MESSAGE SCREEN -->
+    <section id="messageScreen" class="screen" hidden>
+
+        <h2>A Little Something For You 💗</h2>
+
+        <div class="personal-message" id="personalMessage">
+
+            <p>
+                💫🌹There's something I've been wanting to tell you... 
+
+I know we already share something special, and honestly, I've grown to love having you in my world.
+
+I love your little ways, your stubbornness, your smile, the random moments, and even the things you probably don't realise I notice.
+
+But lately, I've found myself wanting more than just what we have now.
+
+I want to be intentional about you. I want to choose you, show up for you, grow with you, make memories with you, and build something beautiful together.
+
+So, on your special day,...
+
+"Perhaps it's time we stopped leaving this to chance. I quite like the thought of there being an 'us' — not just in my imagination, but in real life. 😊
+
+  .-- --- ..- .-.. -.. / -.-- --- ..- / .-- .- -. - / - --- / -... . / -- -.-- / --. .. .-. .-.. ..-. .-. .. . -. -.. ..--..
+No pressure, no perfect answers needed🌹💫
+
+— Yours, hopefully. 🤗🩶
+            </p>
+
+          
+
+        </div>
+
+        <button id="messageBackButton">
+            Back to discoveries
+        </button>
+
+    </section>
+      
+</main>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  
+    <script src="script.js"></script>
+
+</body>
+</html>

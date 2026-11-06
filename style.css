@@ -1,0 +1,1264 @@
+/* =====================================
+   1. COLOUR PALETTE
+===================================== */
+
+:root {
+    --background: #08060D;
+    --surface: #17101F;
+    --surface-light: #291632;
+
+    --burgundy: #48204F;
+    --red: #81528F;
+    --pink: #B98BC9;
+
+    --blush: #D8C7E2;
+    --beige: #F7F2FA;
+    --muted: #B9AABD;
+}
+
+/* =====================================
+   2. RESET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =====================================
+   3. PAGE BACKGROUND
+===================================== */
+
+body {
+    min-height: 100vh;
+
+  background:
+    radial-gradient(
+        ellipse at 50% 35%,
+        #48204F 0%,
+        #211329 45%,
+        #08060D 100%
+    );
+
+    color: var(--beige);
+    font-family: serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+/* =====================================
+   4. MAIN CONTAINER
+===================================== */
+
+main {
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    margin: auto;
+}
+
+/* =====================================
+   5. WELCOME SCREEN
+===================================== */
+
+.welcome-screen {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+
+    animation: fadeIn 1.3s ease;
+}
+
+.welcome-screen h1 {
+    color: var(--beige);
+
+    font-size: clamp(34px, 7vw, 58px);
+    font-weight: normal;
+
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+/* =====================================
+   6. SMALL DECORATIVE LABELS
+===================================== */
+
+.eyebrow {
+    color: var(--pink);
+
+    font-size: 11px;
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* =====================================
+   7. GENERAL TEXT
+===================================== */
+
+.intro {
+    color: var(--muted);
+
+    font-size: 16px;
+    line-height: 1.9;
+
+    max-width: 520px;
+    margin: 0 auto 35px;
+}
+
+/* =====================================
+   8. BUTTONS
+===================================== */
+
+button {
+    padding: 16px 32px;
+
+    border: 1px solid var(--pink);
+    border-radius: 35px;
+
+    background: var(--burgundy);
+    color: var(--beige);
+
+    font-family: Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: all 0.35s ease;
+}
+
+button:hover {
+    background: var(--pink);
+    color: var(--background);
+
+    box-shadow: 0 0 25px #D98FA555;
+
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* =====================================
+   9. CODE SCREEN
+===================================== */
+
+.code-screen {
+    max-width: 550px;
+    margin: auto;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+ 
+/* =====================================
+   14. CHESS CHALLENGE
+===================================== */
+
+.chess-screen {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+  animation:fadeIn 1s ease;
+
+.chess-screen h2 {
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: normal;
+    color: var(--beige);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Chess information */
+
+.chess-info {
+    background: var(--surface);
+    border: 1px solid #A94F6066;
+    border-radius: 12px;
+
+    padding: 14px;
+    margin: 20px auto;
+
+    max-width: 420px;
+}
+
+#chessStatus {
+    color: var(--pink);
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* Chessboard container */
+
+.chess-board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+
+    width: 100%;
+    max-width: 440px;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 20px auto;
+
+    border: 5px solid var(--burgundy);
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 35px #00000066;
+}
+
+/* Individual chess squares */
+
+.chess-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    aspect-ratio: 1 / 1;
+
+    font-family: "DejaVu Sans", serif;
+    font-size: clamp(22px, 7vw, 42px);
+
+    cursor: pointer;
+    position: relative;
+}
+
+/* Beige squares */
+
+.chess-square.light {
+    background: #F3E9D8;
+    color: #571F2B;
+}
+
+/* Burgundy squares */
+
+.chess-square.dark {
+    background: #A66F78;
+    color: #FFF9F2;
+}
+
+/* Selected square */
+
+.chess-square.selected {
+    background: #D98FA5;
+}
+
+/* Possible move highlight */
+
+.chess-square.possible-move::after {
+    content: "";
+
+    width: 25%;
+    height: 25%;
+
+    background: #571F2B88;
+    border-radius: 50%;
+
+    position: absolute;
+}
+
+/* Chess feedback */
+
+#chessMessage {
+    color: var(--blush);
+    font-size: 15px;
+    line-height: 1.7;
+
+    margin: 20px auto;
+    max-width: 450px;
+}
+
+/* Back button */
+
+#backButton {
+    margin-top: 15px;
+    background: transparent;
+}
+
+/* Small phone adjustments */
+
+@media (max-width: 400px) {
+
+    .chess-board {
+        border-width: 3px;
+    }
+
+    .chess-square {
+        font-size: 28px;
+    }
+}
+   animation: fadeIn 1s ease;
+}
+
+.code-screen h2 {
+    font-size: clamp(29px, 6vw, 44px);
+    font-weight: normal;
+
+    line-height: 1.4;
+    margin-bottom: 22px;
+}
+
+/* Code input */
+
+#secretCode {
+    display: block;
+
+    width: 100%;
+    max-width: 320px;
+
+    margin: 0 auto 22px;
+    padding: 16px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--red);
+    border-radius: 30px;
+
+    color: var(--beige);
+    font-size: 16px;
+
+    text-align: center;
+    outline: none;
+}
+
+#secretCode::placeholder {
+    color: var(--muted);
+}
+
+#secretCode:focus {
+    border-color: var(--pink);
+
+    box-shadow:
+        0 0 15px #D98FA544;
+}
+
+/* Error or feedback message */
+
+#codeMessage {
+    color: var(--pink);
+    font-size: 14px;
+
+    margin-top: 20px;
+}
+
+/* =====================================
+   10. ADVENTURE SCREEN
+===================================== */
+
+.adventure-screen {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+
+    animation: fadeIn 1.2s ease;
+}
+
+.adventure-screen h2 {
+    font-size: clamp(30px, 6vw, 46px);
+    font-weight: normal;
+
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+/* Chess challenge button */
+
+#chessButton {
+    display: block;
+
+    margin: 0 auto;
+
+    background: var(--surface);
+    border-color: var(--pink);
+
+    padding: 18px 35px;
+}
+
+#chessButton:hover {
+    background: var(--pink);
+}
+
+/* Coming soon text */
+
+.coming-soon {
+    color: var(--pink);
+
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    margin-top: 35px;
+    opacity: 0.8;
+}
+
+/* =====================================
+   11. ANIMATIONS
+===================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   12. MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 600px) {
+
+    main {
+        padding: 22px;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    button {
+        padding: 15px 25px;
+        font-size: 13px;
+    }
+
+    #secretCode {
+        max-width: 100%;
+    }
+}
+
+/* =====================================
+   13. REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* CHESSBOARD LAYOUT FIX */
+
+.chess-board {
+    display: grid !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: repeat(8, minmax(0, 1fr));
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 1 / 1;
+    margin: 20px auto;
+    border: 5px solid var(--burgundy);
+    overflow: hidden;
+}
+
+.chess-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    font-size: clamp(20px, 7vw, 42px);
+    cursor: pointer;
+}
+
+.chess-square.light {
+    background: #F3E9D8;
+    color: #571F2B;
+}
+
+.chess-square.dark {
+    background: #A66F78;
+    color: #FFF9F2;
+}
+
+.chess-square.selected {
+    background: #D98FA5;
+}
+
+.chess-square.possible-move::after {
+    content: "";
+    width: 25%;
+    height: 25%;
+    background: #571F2B88;
+    border-radius: 50%;
+}
+/* THE VICTORY EXPERIENCE */
+
+.chess-screen.victory {
+    animation: victoryEntrance 0.8s ease;
+}
+
+.chess-screen.victory .chess-info {
+    background: linear-gradient(
+        135deg,
+        #571F2B,
+        #A94F60,
+        #D98FA5
+    );
+    border: 2px solid #F3E9D8;
+    box-shadow: 0 0 30px #D98FA588;
+    animation: victoryGlow 2s infinite alternate;
+}
+
+.chess-screen.victory #chessStatus {
+    color: #FFF4DC;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: clamp(19px, 5vw, 27px);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.chess-screen.victory #chessMessage {
+    white-space: pre-line;
+    max-width: 520px;
+    margin: 25px auto;
+    padding: 30px 20px;
+
+    background: linear-gradient(
+        145deg,
+        #493039,
+        #571F2B
+    );
+
+    border: 2px solid #D98FA5;
+    border-radius: 22px;
+
+    color: #F3E9D8;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: clamp(17px, 4.5vw, 23px);
+    font-weight: 700;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 12px 35px #00000066;
+    animation: messagePop 0.8s ease;
+}
+
+/* THE VICTORY EXPERIENCE */
+
+.chess-screen.victory {
+    animation: victoryEntrance 0.8s ease;
+}
+
+.chess-screen.victory .chess-info {
+    background: linear-gradient(
+        135deg,
+        #352451,
+        #6845A1,
+        #9874D1
+    );
+    border: 2px solid #D8C9F2;
+    box-shadow: 0 0 30px #9874D188;
+    animation: victoryGlow 2s infinite alternate;
+}
+
+.chess-screen.victory #chessStatus {
+    color: #F1ECFA;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: clamp(19px, 5vw, 27px);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.chess-screen.victory #chessMessage {
+    white-space: pre-line;
+    max-width: 520px;
+    margin: 25px auto;
+    padding: 30px 20px;
+    background: linear-gradient(145deg, #35284F, #493078);
+    border: 2px solid #B99AEF;
+    border-radius: 22px;
+    color: #F1ECFA;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: clamp(17px, 4.5vw, 23px);
+    font-weight: 700;
+    line-height: 1.9;
+    box-shadow: 0 12px 35px #00000066;
+    animation: messagePop 0.8s ease;
+}
+
+.chess-screen.victory #backButton {
+    background: linear-gradient(135deg, #7652B5, #B99AEF);
+    color: #171225;
+    border: 2px solid #D8C9F2;
+    font-weight: 900;
+}
+
+@keyframes victoryEntrance {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes messagePop {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes victoryGlow {
+    from { box-shadow: 0 0 12px #9874D144; }
+    to { box-shadow: 0 0 35px #9874D1BB; }
+}
+
+/* MIDNIGHT PURPLE BUTTON STYLE */
+
+button {
+    background: linear-gradient(
+        135deg,
+        #48204F,
+        #81528F
+    );
+
+    color: #F7F2FA;
+    border: 1px solid #B98BC9;
+    border-radius: 30px;
+    padding: 14px 28px;
+
+    font-family: Georgia, serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 5px 20px #48204F66;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(
+        135deg,
+        #81528F,
+        #B98BC9
+    );
+
+    box-shadow: 0 0 25px #B98BC988;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* MIDNIGHT GLASS PANELS */
+
+.code-screen,
+.adventure-screen,
+.chess-info {
+    background: linear-gradient(
+        145deg,
+        #291632CC,
+        #17101FEE
+    );
+
+    border: 1px solid #81528F66;
+    border-radius: 20px;
+    padding: 25px;
+
+    box-shadow:
+        0 12px 35px #00000055,
+        inset 0 1px 0 #FFFFFF12;
+
+    backdrop-filter: blur(12px);
+}
+
+/* INPUT FIELD */
+
+#secretCode {
+    background: #17101F;
+    color: #F7F2FA;
+    border: 1px solid #81528F;
+    border-radius: 12px;
+    padding: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+#secretCode:focus {
+    border-color: #D8C7E2;
+    box-shadow: 0 0 18px #81528F88;
+}
+
+/* HEADINGS */
+
+h1, h2 {
+    color: #F7F2FA;
+    text-shadow: 0 0 18px #81528F55;
+}
+
+/* EYEBROW LABELS */
+
+.eyebrow {
+    color: #D8C7E2;
+    letter-spacing: 3px;
+}
+
+/* MIDNIGHT PURPLE CHESSBOARD */
+
+.chess-board {
+    border: 4px solid #81528F;
+    border-radius: 10px;
+    box-shadow:
+        0 0 20px #48204F88,
+        0 12px 35px #00000066;
+}
+
+.chess-square.light {
+    background: #D8C7E2;
+    color: #291632;
+}
+
+.chess-square.dark {
+    background: #48204F;
+    color: #F7F2FA;
+}
+
+.chess-square.selected {
+    background: #B98BC9;
+}
+
+.chess-square.possible-move::after {
+    background: #17101F99;
+}
+
+/* CHESS STATUS PANEL */
+
+.chess-info {
+    border-color: #81528F88;
+}
+
+#chessStatus {
+    color: #D8C7E2;
+}
+
+#chessMessage {
+    color: #E9DDF0;
+}
+/* THE GRAND VICTORY */
+
+.chess-screen.victory {
+    animation: victoryEntrance 1s ease;
+}
+
+.chess-screen.victory .chess-info {
+    background: linear-gradient(
+        135deg,
+        #291632,
+        #48204F,
+        #81528F
+    );
+
+    border: 2px solid #B98BC9;
+
+    box-shadow:
+        0 0 25px #81528F88,
+        0 0 60px #48204F66;
+
+    animation: victoryGlow 2s infinite alternate;
+}
+
+.chess-screen.victory #chessStatus {
+    color: #F7F2FA;
+    font-family: "Trebuchet MS", serif;
+    font-size: clamp(20px, 5vw, 30px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #D8C7E2;
+}
+
+.chess-screen.victory #chessMessage {
+    white-space: pre-line;
+    max-width: 520px;
+    margin: 25px auto;
+    padding: 32px 22px;
+
+    background: linear-gradient(
+        145deg,
+        #291632,
+        #17101F
+    );
+
+    border: 2px solid #81528F;
+    border-radius: 22px;
+
+    color: #F7F2FA;
+    font-family: "Trebuchet MS", serif;
+    font-size: clamp(19px, 4.5vw, 25px);
+    font-weight: 800;
+    line-height: 1.9;
+    text-align: center;
+
+    box-shadow: 0 0 30px #48204F88;
+
+    animation: messagePop 0.9s ease;
+}
+
+.chess-screen.victory #backButton {
+    background: linear-gradient(
+        135deg,
+        #48204F,
+        #81528F,
+        #B98BC9
+    );
+
+    color: #FFFFFF;
+    border: 1px solid #D8C7E2;
+    font-weight: 900;
+    box-shadow: 0 0 25px #81528F88;
+}
+
+@keyframes victoryEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.90);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes messagePop {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes victoryGlow {
+    from {
+        box-shadow: 0 0 15px #81528F55;
+    }
+    to {
+        box-shadow: 0 0 40px #B98BC9CC;
+    }
+}
+
+  
+/* =================================
+   THE HIDDEN LETTER EXPERIENCE
+================================= */
+
+.letter-screen {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 25px 15px;
+    text-align: center;
+    animation: letterEntrance 1s ease;
+}
+
+.letter-screen .eyebrow {
+    color: #D8C7E2;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.letter-screen h2 {
+    color: #F7F2FA;
+    font-size: clamp(30px, 7vw, 44px);
+    font-weight: normal;
+    line-height: 1.3;
+    margin: 22px 0;
+    text-shadow: 0 0 22px #81528F88;
+}
+
+.letter-screen .intro {
+    color: #D8C7E2;
+    line-height: 1.9;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+/* COUNTDOWN CARD */
+
+.letter-timer {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        145deg,
+        #291632,
+        #17101F,
+        #211329
+    );
+
+    border: 1px solid #81528F88;
+    border-radius: 25px;
+    padding: 32px 22px;
+    margin: 35px auto 25px;
+
+    box-shadow:
+        0 15px 40px #00000066,
+        inset 0 1px 0 #FFFFFF15;
+}
+
+#timerDisplay {
+    color: #FFFFFF;
+    font-family: Georgia, serif;
+    font-size: clamp(52px, 13vw, 78px);
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 12px #B98BC9,
+        0 0 35px #81528F;
+
+    margin-bottom: 15px;
+}
+
+#timerMessage {
+    color: #D8C7E2;
+    font-size: 15px;
+    line-height: 1.8;
+    min-height: 48px;
+    margin: 12px 0;
+    transition: opacity 0.4s ease;
+}
+
+.timer-track {
+    height: 8px;
+    background: #08060D;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 24px;
+}
+
+#timerProgress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #48204F,
+        #81528F,
+        #D8C7E2
+    );
+    border-radius: 20px;
+    box-shadow: 0 0 15px #B98BC9;
+    transition: width 1s linear;
+}
+
+/* SEALED LETTER */
+
+.sealed-letter {
+    background:
+        radial-gradient(
+            circle at top,
+            #48204F66,
+            transparent 70%
+        ),
+        linear-gradient(145deg, #291632, #17101F);
+
+    border: 1px solid #81528F88;
+    border-radius: 25px;
+    padding: 38px 22px;
+    margin: 25px auto;
+
+    box-shadow: 0 12px 35px #00000055;
+}
+
+.lock-icon {
+    font-size: 65px;
+    margin-bottom: 18px;
+    filter: drop-shadow(0 0 15px #B98BC9);
+    animation: lockFloat 3s ease-in-out infinite;
+}
+
+.sealed-letter h3 {
+    color: #F7F2FA;
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.sealed-letter p {
+    color: #B9AABD;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* OPEN LETTER */
+
+.open-letter {
+    background:
+        radial-gradient(
+            ellipse at top,
+            #48204F88,
+            transparent 75%
+        ),
+        linear-gradient(145deg, #291632, #17101F);
+
+    border: 1px solid #B98BC9;
+    border-radius: 25px;
+    padding: 35px 24px;
+    margin: 28px auto;
+
+    box-shadow:
+        0 0 25px #81528F66,
+        0 15px 40px #00000066;
+
+    animation: letterReveal 1.2s ease;
+}
+
+.open-letter .eyebrow {
+    margin-bottom: 20px;
+}
+
+#personalLetter {
+    color: #F7F2FA;
+    font-family: Georgia, serif;
+    font-size: clamp(17px, 4vw, 20px);
+    line-height: 2;
+    white-space: pre-line;
+    margin-top: 22px;
+}
+
+/* BACK BUTTON */
+
+.letter-screen #letterBackButton {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid #81528F;
+    color: #D8C7E2;
+}
+
+.letter-screen #letterBackButton:hover {
+    background: #291632;
+    box-shadow: 0 0 20px #81528F88;
+}
+
+/* LOCKED DISCOVERY BUTTON */
+
+#letterButton:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    filter: grayscale(0.3);
+    box-shadow: none;
+    transform: none;
+}
+
+#letterButton:not(:disabled) {
+    box-shadow: 0 0 22px #81528F77;
+}
+
+/* ANIMATIONS */
+
+@keyframes letterEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes lockFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+  
+/* =================================
+   THE SEALED PURPLE ENVELOPE
+================================= */
+
+.envelope {
+    position: relative;
+    width: 190px;
+    height: 135px;
+    margin: 35px auto;
+    perspective: 800px;
+    filter: drop-shadow(0 12px 15px #00000066);
+}
+
+/* Envelope base */
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #81528F, #48204F);
+    border: 1px solid #B98BC9;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* Letter peeking out */
+.envelope-letter {
+    position: absolute;
+    width: 145px;
+    height: 105px;
+    background: #F7F2FA;
+    left: 22px;
+    top: -12px;
+    border-radius: 5px;
+    z-index: 2;
+    transition: transform 1s ease;
+}
+
+/* Front folds */
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #48204F, #291632);
+    clip-path: polygon(0 35%, 50% 80%, 100% 35%, 100% 100%, 0 100%);
+    border-radius: 8px;
+    z-index: 3;
+}
+
+/* Top flap */
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #B98BC9, #81528F);
+    clip-path: polygon(0 0, 100% 0, 50% 65%);
+    transform-origin: top;
+    transition: transform .9s ease;
+    z-index: 5;
+}
+
+/* Wax seal */
+.wax-seal {
+    position: absolute;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #D8C7E2, #81528F 65%, #48204F);
+    border: 2px solid #D8C7E2;
+    color: #F7F2FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px #B98BC988;
+    z-index: 6;
+}
+
+/* Envelope opens */
+.envelope.opened .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope.opened .envelope-letter {
+    transform: translateY(-85px);
+}
+
+/* Open letter button */
+#openLetterButton {
+    margin: 15px auto;
+    animation: letterEntrance 1s ease;
+}
+
+#openLetterButton[hidden] {
+    display: none;
+}
+
+
+  /* ==============================
+   PERSONAL MESSAGE SCREEN
+============================== */
+
+#messageScreen {
+    max-width: 650px;
+    margin: auto;
+    padding: 25px 18px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+#messageScreen h2 {
+    color: var(--pink);
+    margin-bottom: 25px;
+}
+
+.personal-message {
+    background: linear-gradient(
+        145deg,
+        var(--surface),
+        var(--surface-light)
+    );
+
+    border: 1px solid var(--pink);
+    border-radius: 22px;
+
+    padding: 30px 22px;
+    margin: 20px auto;
+
+    box-shadow: 0 0 25px rgba(185, 139, 201, 0.15);
+
+    line-height: 1.9;
+    color: var(--beige);
+
+    animation: messageReveal 1.2s ease;
+}
+
+.personal-message p {
+    margin-bottom: 20px;
+}
+
+.personal-message p:last-child {
+    margin-bottom: 0;
+}
+
+.message-signature {
+    color: var(--pink);
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+#messageBackButton {
+    margin-top: 20px;
+}
+
+@keyframes messageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
